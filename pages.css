@@ -1,0 +1,269 @@
+body {
+  margin: 0;
+  background: #111;
+  overflow: hidden;
+}
+
+/* full screen layout */
+.page-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* background system (same as TOC) */
+.page-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+/* 🔥 BACK BUTTON (consistent portfolio style) */
+/* 🔥 BACK BUTTON (SMALL + RIGHT SIDE + SLIGHTLY LOWER) */
+.back-btn {
+  position: absolute;
+
+  top: 13%;
+  right: 5%;
+  width: clamp(110px, 6vw, 200px);
+
+  cursor: pointer;
+
+  z-index: 9999; /* 🔥 IMPORTANT FIX */
+
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+.back-btn:active {
+  transform: scale(0.96);
+}
+
+/* ============================= */
+/* 🔥 CREDENTIALS GALLERY UPDATED */
+/* ============================= */
+
+.credentials-gallery {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 2px; /* 👈 EVEN TIGHTER spacing */
+
+  z-index: 5;
+}
+
+.cred-item {
+  width: clamp(260px, 26vw, 420px);
+
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.cred-item:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+.projects-header {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: contain;
+
+  pointer-events: none; /* 👈 prevents blocking clicks */
+  z-index: 2;
+}
+/* ============================= */
+/* 🔥 PROJECT PAGE TITLE SECTION */
+/* ============================= */
+
+.project-title {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  z-index: 5;
+}
+
+.project-title-img {
+  width: clamp(2000px, 22vw, 380px);
+}
+
+/* scroll hint (important for exhibit UX) */
+.scroll-indicator {
+  margin-top: 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #f7921e; /* 👈 BLACK TEXT */
+  animation: fadeHint 1.5s infinite alternate;
+}
+
+@keyframes fadeHint {
+  from { opacity: 0.3; transform: translateY(0px); }
+  to { opacity: 0.8; transform: translateY(5px); }
+}
+
+/* ============================= */
+/* 🔥 FULL SCREEN SCROLL SYSTEM */
+/* ============================= */
+
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* each section full screen */
+.scroll-section {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* ============================= */
+/* 🔥 TITLE SECTION */
+/* ============================= */
+
+.title-section {
+  text-align: center;
+}
+
+/* 🔥 BIG PROJECT TITLE (FIXED) */
+.project-title-img {
+  width: clamp(600px, 65vw, 1000px); /* 👈 now large as requested */
+  max-width: 90vw;
+
+  transition: transform 0.3s ease;
+}
+
+.project-title-img:hover {
+  transform: scale(1.03);
+}
+
+/* scroll hint */
+.scroll-indicator {
+  margin-top: 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+
+  animation: fadeHint 1.5s infinite alternate;
+}
+
+@keyframes fadeHint {
+  from { opacity: 0.3; transform: translateY(0px); }
+  to { opacity: 0.9; transform: translateY(8px); }
+}
+
+/* ============================= */
+/* 🔥 PROJECT IMAGES */
+/* ============================= */
+
+.project-img {
+  width: clamp(500px, 75vw, 1200px); /* 👈 MUCH BIGGER */
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.project-img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.15);
+}
+
+/* ============================= */
+/* 🔥 CLEAN SCROLLBAR */
+/* ============================= */
+
+.scroll-container::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* ============================= */
+/* 📱 MOBILE OPTIMIZATION */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* 🔹 GENERAL SCALE FIX */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 🔹 BACK BUTTON */
+  .back-btn {
+    top: 10%;
+    right: 5%;
+    width: clamp(80px, 18vw, 140px);
+  }
+
+  /* 🔹 PROJECT TITLE */
+  .project-title-img {
+    width: 80vw;
+  }
+
+  /* 🔹 PROJECT IMAGES */
+  .project-img {
+    width: 90vw;
+  }
+
+  /* 🔹 SCROLL INDICATOR */
+  .scroll-indicator {
+    font-size: 12px;
+  }
+
+  /* 🔹 TOC BUTTONS (STACK BETTER ON SMALL SCREEN) */
+  .toc-buttons {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .toc-btn {
+    width: 40vw;
+  }
+
+  /* 🔹 CREDENTIALS (STACK IF TOO SMALL) */
+  .credentials-gallery {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cred-item {
+    width: 80vw;
+  }
+
+}

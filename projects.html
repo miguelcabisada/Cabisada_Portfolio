@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects</title>
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- BACKGROUND -->
+    <img src="projects.png" class="page-bg">
+
+    <!-- BACK BUTTON (FIXED) -->
+<img src="back-btn.png" class="back-btn"
+onclick="window.location.href='table-of-contents.html'">    <!-- SCROLL CONTAINER -->
+    <div class="scroll-container">
+
+      <!-- TITLE -->
+      <section class="scroll-section title-section">
+        <img src="project.png" class="project-title-img">
+        <div class="scroll-indicator">↓ Scroll to explore ↓</div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="scroll-section">
+        <img src="work1.png" class="project-img">
+      </section>
+
+      <section class="scroll-section">
+        <img src="work2.png" class="project-img">
+      </section>
+
+      <section class="scroll-section">
+        <img src="work3.png" class="project-img">
+      </section>
+
+      <section class="scroll-section">
+        <img src="work4.png" class="project-img">
+      </section>
+
+      <section class="scroll-section">
+        <img src="work5.png" class="project-img">
+      </section>
+   </div>
+
+  <script src="pages.js"></script>
+
+  <script>
+    // safety fallback (if external JS fails)
+    function goTOC() {
+      window.location.href = "table-of-contents.html";
+    }
+  </script>
+
+</body>
+</html>
